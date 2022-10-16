@@ -10,7 +10,6 @@ export default function Home(){
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
-  console.log(data)
   return (
     <Layout title="Major courses" action={
       <Link href={'/courses/new'}>
@@ -19,8 +18,8 @@ export default function Home(){
 
       {data && 
         data.map((c, i) => (
-          <div>
-            {c.title} ({c.semester})
+          <div key={i}>
+            {c.name} ({c.modality})
             <Link href={`/courses/${c._id}/edit`}>
               <a className="btn btn-success float-end">Edit</a>
             </Link>
